@@ -24,20 +24,17 @@ The objective of this project is to design and implement a search engine capable
 
 This design allows easy comparison of different hashing strategies.
 
-
 ## Hash Functions
 - **Simple Summation Function (SSF)**  
   Computes the hash by summing ASCII values of characters.
 - **Polynomial Accumulation Function (PAF)**  
   Uses Horner’s Rule with a constant multiplier (z = 33) for better distribution.
 
-
 ## Collision Resolution Strategies
 - **Linear Probing (LP)**  
   Resolves collisions by checking the next available slot sequentially.
 - **Double Hashing (DH)**  
   Uses a second hash function to determine probe step size, reducing clustering.
-
 
 ## File Processing Pipeline
 
@@ -82,6 +79,7 @@ The Polynomial Accumulation Function (PAF) consistently outperformed SSF. By usi
 As the Load Factor increased from 0.5 to 0.8, collision counts naturally increased due to reduced table availability. However, Double Hashing proved to be more robust than Linear Probing at high density. For instance, with PAF at 80% load, DH maintained fewer collisions (341k) compared to LP (388k), validating DH as the superior collision resolution strategy for denser tables.
 - **Search Time:**
 Average search times directly correlated with collision counts. The SSF+LP configuration required significantly more time to retrieve keys (Avg: 0.0852 ms) compared to the PAF configurations (Avg: ~0.0005 ms), as the search algorithm was forced to traverse long probe sequences to locate entries.
+
 
 
 
